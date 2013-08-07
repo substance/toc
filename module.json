@@ -1,0 +1,22 @@
+{
+  "name"          : "substance-toc",
+  "description"   : "TOC View for Substance documents",
+  "url"           : "http://github.com/substance/toc",
+  "keywords"      : ["table of contents", "overview"],
+  "author"        : "Michael Aufreiter",
+  "contributors"  : ["Oliver Buchtala"],
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/substance/toc.git"
+  },
+  "dependencies": {
+    "underscore": "",
+    "substance-util": "",
+    "substance-application": ""
+  },
+  "devDependencies": {
+    "substance-test": "",
+    "substance-document": ""
+  },
+  "version"       : "0.1.0"
+}
