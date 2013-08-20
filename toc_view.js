@@ -2,14 +2,23 @@
 
 var View = require("substance-application").View;
 var $$ = require("substance-application").$$;
-
+var Data = require("substance-data");
+var Index = Data.Graph.Index;
 
 // Substance.TOC.View
 // ==========================================================================
 
 var TOCView = function(doc) {
-  this.doc = doc;
   View.call(this);
+  this.doc = doc;
+
+  // Sniff into headings
+  // --------
+  // 
+
+  this.headings = _.filter(this.doc.content.getNodes(), function(node) {
+    return node.type === "heading";
+  });
 
   this.$el.addClass("toc");
 };
@@ -35,18 +44,11 @@ TOCView.Prototype = function() {
 
   this.render = function() {
 
-
-    this.el.appendChild($$('a.heading-ref.level-1', {
-      text: "HELLO"
-    }));
-
-    // <% _.each(headings, function(h) { %>
-    //   <a href="#" class="heading-ref level-<%= h.level %>" data-node="<%= h.id %>"><%= h.content %></a>
-    // <% }); %>
-
-    // $(this.el).html(_.tpl('toc', {
-    //   headings: getHeadings(this.model.document)
-    // }));
+    _.each(this.headings, function(heading) {
+      this.el.appendChild($$('a.heading-ref.level-'+heading.level, {
+        text: heading.content
+      }));
+    }, this);
 
     return this;
   };
