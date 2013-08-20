@@ -25,20 +25,6 @@ var TOCView = function(doc) {
 
 TOCView.Prototype = function() {
 
-  // Handle clicks on `.heading-ref` elements in the TOC
-  // --------
-  // 
-
-  // _jumpToHeading: function(e) {
-  //   var target = $(e.currentTarget).attr('data-node');
-  //   var node = this.model.document.nodes[target];
-  //   this.selectNode(node.id);
-  //   this.jumpToNode(node);
-  //   this.updateResources();
-  //   this.updatePath();
-  //   return false;
-  // },
-
   // Renderer
   // --------
 
@@ -46,7 +32,8 @@ TOCView.Prototype = function() {
 
     _.each(this.headings, function(heading) {
       this.el.appendChild($$('a.heading-ref.level-'+heading.level, {
-        text: heading.content
+        text: heading.content,
+        "sbs-click": "jumpToNode("+heading.id+")"
       }));
     }, this);
 
