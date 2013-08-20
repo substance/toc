@@ -2,12 +2,29 @@
 TOC 
 --------------------------------------- */
 
-.article .toc.view {
-  margin-right: 20px;
-  position: relative;
+.resource-view.toc {
+  display: none;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-top: 50px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
-.article .toc.view .heading-ref {
+.resource-view.toc.active {
+  display: block;
+}
+
+/*.toc {
+  margin-right: 20px;
+  position: relative;
+}*/
+
+.resource-view.toc .heading-ref {
   display: block;
   color: rgba(0,0,0,0.5);
   font-size: 17px;
@@ -18,23 +35,22 @@ TOC
   border: 1px solid transparent;
 }
 
-.article .toc.view .heading-ref.highlighted {
+.resource-view.toc .heading-ref.highlighted {
   color: rgba(0,0,0,0.9);
   background: #fff;
   border: 1px solid #eee;
 }
 
-
-.article .toc.view .heading-ref.level-2 {
+.resource-view.toc .heading-ref.level-2 {
   padding-left: 30px;
   font-size: 13px;
 }
 
-.article .toc.view .heading-ref.level-3 {
+.resource-view.toc .heading-ref.level-3 {
   padding-left: 60px;
   font-size: 13px;
 }
 
-.article .toc.view .heading-ref:hover {
+.resource-view.toc .heading-ref:hover {
   color: rgba(0,0,0,1.0);
 }
