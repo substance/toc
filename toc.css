@@ -2,27 +2,6 @@
 TOC 
 --------------------------------------- */
 
-.resource-view.toc {
-  display: none;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-top: 50px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-
-.resource-view.toc.active {
-  display: block;
-}
-
-/*.toc {
-  margin-right: 20px;
-  position: relative;
-}*/
 
 .resource-view.toc .heading-ref {
   cursor: pointer;
@@ -36,7 +15,7 @@ TOC
   border: 1px solid transparent;
 }
 
-.resource-view.toc .heading-ref.highlighted {
+.resource-view.toc .heading-ref.active {
   color: rgba(0,0,0,0.9);
   background: #fff;
   border: 1px solid #eee;

@@ -32,6 +32,7 @@ TOCView.Prototype = function() {
 
     _.each(this.headings, function(heading) {
       this.el.appendChild($$('a.heading-ref.level-'+heading.level, {
+        id: "toc_"+heading.id,
         text: heading.content,
         "sbs-click": "jumpToNode("+heading.id+")"
       }));
@@ -39,6 +40,16 @@ TOCView.Prototype = function() {
 
     return this;
   };
+
+  // Renderer
+  // --------
+  // 
+
+  this.setActiveNode = function(nodeId) {
+    this.$('.heading-ref.active').removeClass('active');
+    this.$('#toc_'+nodeId).addClass('active');
+  };
+
 };
 
 TOCView.Prototype.prototype = View.prototype;
