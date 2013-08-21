@@ -31,6 +31,11 @@ TOC
   font-size: 13px;
 }
 
+.resource-view.toc .heading-ref.level-4 {
+  padding-left: 80px;
+  font-size: 12px;
+}
+
 .resource-view.toc .heading-ref:hover {
   color: rgba(0,0,0,1.0);
 }
