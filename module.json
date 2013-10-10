@@ -4,7 +4,7 @@
   "url"           : "http://github.com/substance/toc",
   "keywords"      : ["table of contents", "overview"],
   "author"        : "Michael Aufreiter",
-  "contributors"  : ["Oliver Buchtala"],
+  "contributors"  : ["Oliver Buchtala", "Ivan Grubisic"],
   "repository": {
       "type": "git",
       "url": "https://github.com/substance/toc.git"
@@ -13,10 +13,6 @@
     "underscore": "",
     "substance-util": "",
     "substance-application": ""
-  },
-  "devDependencies": {
-    "substance-test": "",
-    "substance-document": ""
   },
   "version"       : "0.1.0"
 }
