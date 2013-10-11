@@ -8,7 +8,8 @@
   ],
   "author": "Michael Aufreiter",
   "contributors": [
-    "Oliver Buchtala"
+    "Oliver Buchtala",
+    "Ivan Grubisic"
   ],
   "repository": {
     "type": "git",
@@ -18,10 +19,6 @@
     "underscore": "1.5.x",
     "substance-util": "git+https://github.com/substance/util.git#0.2.x",
     "substance-application": "git+https://github.com/substance/application.git#0.1.x"
-  },
-  "devDependencies": {
-    "substance-test": "git+https://github.com/substance/test.git#0.2.x",
-    "substance-document": "git+https://github.com/substance/document.git#0.5.x"
   },
   "version": "0.1.0",
   "engines": {
