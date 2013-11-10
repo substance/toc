@@ -22,22 +22,22 @@ TOC
 }
 
 .resource-view.toc .heading-ref.level-2 {
-  padding-left: 30px;
+  padding-left: 20px;
   font-size: 13px;
 }
 
 .resource-view.toc .heading-ref.level-3 {
-  padding-left: 60px;
+  padding-left: 40px;
   font-size: 13px;
 }
 
 .resource-view.toc .heading-ref.level-4 {
-  padding-left: 80px;
+  padding-left: 60px;
   font-size: 12px;
 }
 
 .resource-view.toc .heading-ref.level-5 {
-  padding-left: 100px;
+  padding-left: 80px;
   font-size: 12px;
 }
 
