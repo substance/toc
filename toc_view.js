@@ -9,15 +9,15 @@ var _ = require("underscore");
 // Substance.TOC.View
 // ==========================================================================
 
-var TOCView = function(doc) {
+var TOCView = function(docCtrl) {
   View.call(this);
-  this.doc = doc;
+  this.docCtrl = docCtrl;
 
   // Sniff into headings
   // --------
-  // 
+  //
 
-  this.headings = _.filter(this.doc.content.getNodes(), function(node) {
+  this.headings = _.filter(this.docCtrl.getNodes(), function(node) {
     return node.type === "heading";
   });
 
@@ -44,7 +44,7 @@ TOCView.Prototype = function() {
 
   // Renderer
   // --------
-  // 
+  //
 
   this.setActiveNode = function(nodeId) {
     this.$('.heading-ref.active').removeClass('active');
