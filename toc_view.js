@@ -13,14 +13,6 @@ var TOCView = function(docCtrl) {
   View.call(this);
   this.docCtrl = docCtrl;
 
-  // Sniff into headings
-  // --------
-  //
-
-  this.headings = _.filter(this.docCtrl.getNodes(), function(node) {
-    return node.type === "heading";
-  });
-
   this.$el.addClass("toc");
 };
 
@@ -31,6 +23,10 @@ TOCView.Prototype = function() {
 
   this.render = function() {
     this.el.innerHTML = "";
+
+    this.headings = _.filter(this.docCtrl.getNodes(), function(node) {
+      return node.type === "heading";
+    });
 
     if (this.headings.length <= 2) return this;
     _.each(this.headings, function(heading) {
