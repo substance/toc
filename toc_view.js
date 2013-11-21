@@ -30,6 +30,8 @@ TOCView.Prototype = function() {
   // --------
 
   this.render = function() {
+    this.el.innerHTML = "";
+
     if (this.headings.length <= 2) return this;
     _.each(this.headings, function(heading) {
       this.el.appendChild($$('a.heading-ref.level-'+heading.level, {
