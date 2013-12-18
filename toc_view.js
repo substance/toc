@@ -24,7 +24,7 @@ TOCView.Prototype = function() {
   this.render = function() {
     this.el.innerHTML = "";
 
-    this.headings = _.filter(this.docCtrl.getNodes(), function(node) {
+    this.headings = _.filter(this.docCtrl.container.getNodes(), function(node) {
       return node.type === "heading";
     });
 
