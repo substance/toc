@@ -24,11 +24,12 @@ TOCView.Prototype = function() {
   this.render = function() {
     this.el.innerHTML = "";
 
+    // TODO: we can do this efficiently using an Index
     this.headings = _.filter(this.docCtrl.container.getNodes(), function(node) {
       return node.type === "heading";
     });
 
-    if (this.headings.length <= 2) return this;
+    if (this.headings.length <= 2 && !this.SHOW_ALWAYS) return this;
     _.each(this.headings, function(heading) {
       this.el.appendChild($$('a.heading-ref.level-'+heading.level, {
         id: "toc_"+heading.id,
