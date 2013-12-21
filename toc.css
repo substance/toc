@@ -6,7 +6,7 @@ TOC
 .resource-view.toc .heading-ref {
   cursor: pointer;
   display: block;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0,0,0,0.7);
   font-size: 17px;
   padding: 4px 10px;
   line-height: 20px;
