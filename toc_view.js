@@ -9,17 +9,9 @@ var _ = require("underscore");
 // Substance.TOC.View
 // ==========================================================================
 
-var TOCView = function(doc) {
+var TOCView = function(docCtrl) {
   View.call(this);
-  this.doc = doc;
-
-  // Sniff into headings
-  // --------
-  // 
-
-  this.headings = _.filter(this.doc.content.getNodes(), function(node) {
-    return node.type === "heading";
-  });
+  this.docCtrl = docCtrl;
 
   this.$el.addClass("toc");
 };
@@ -30,7 +22,14 @@ TOCView.Prototype = function() {
   // --------
 
   this.render = function() {
-    if (this.headings.length <= 2) return this;
+    this.el.innerHTML = "";
+
+    // TODO: we can do this efficiently using an Index
+    this.headings = _.filter(this.docCtrl.container.getNodes(), function(node) {
+      return node.type === "heading";
+    });
+
+    if (this.headings.length <= 2 && !this.SHOW_ALWAYS) return this;
     _.each(this.headings, function(heading) {
       this.el.appendChild($$('a.heading-ref.level-'+heading.level, {
         id: "toc_"+heading.id,
@@ -44,7 +43,7 @@ TOCView.Prototype = function() {
 
   // Renderer
   // --------
-  // 
+  //
 
   this.setActiveNode = function(nodeId) {
     this.$('.heading-ref.active').removeClass('active');
