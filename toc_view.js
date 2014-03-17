@@ -2,7 +2,6 @@
 
 var View = require("substance-application").View;
 var $$ = require("substance-application").$$;
-var Data = require("substance-data");
 var _ = require("underscore");
 
 // Substance.TOC.View
