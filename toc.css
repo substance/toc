@@ -44,3 +44,18 @@ TOC
 .resource-view.toc .heading-ref:hover {
   color: rgba(0,0,0,1.0);
 }
+
+.resource-view.toc .toc-placeholder {
+  line-height: 40px;
+  font-size: 20px;
+  
+  
+  padding-left: 10px;
+  
+}
+
+.resource-view.toc .toc-placeholder .small {
+  font-style: italic;
+  color: #777;
+  font-size: 14px;
+}

@@ -27,14 +27,20 @@ TOCView.Prototype = function() {
       return node.type === "heading";
     });
 
-    if (this.headings.length <= 2 && !this.SHOW_ALWAYS) return this;
-    _.each(this.headings, function(heading) {
-      this.el.appendChild($$('a.heading-ref.level-'+heading.level, {
-        id: "toc_"+heading.id,
-        text: heading.content,
-        "sbs-click": "jumpToNode("+heading.id+")"
-      }));
-    }, this);
+    
+
+    if (this.headings.length > 0) {
+      _.each(this.headings, function(heading) {
+        this.el.appendChild($$('a.heading-ref.level-'+heading.level, {
+          id: "toc_"+heading.id,
+          text: heading.content,
+          "sbs-click": "jumpToNode("+heading.id+")"
+        }));
+      }, this);
+    } else {
+      this.el.appendChild($$('.toc-placeholder', {html: 'Add structure your article by inserting headings.<div class="small">Use the text type tool on the upper left of the screen to do so.</div>'}));
+    }
+
 
     return this;
   };
