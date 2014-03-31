@@ -38,7 +38,7 @@ TOCView.Prototype = function() {
         }));
       }, this);
     } else {
-      this.el.appendChild($$('.toc-placeholder', {html: 'Add structure your article by inserting headings.<div class="small">Use the text type tool on the upper left of the screen to do so.</div>'}));
+      this.el.appendChild($$('.toc-placeholder', {html: 'Add structure to your article using headings.<div class="small">To create a heading use the text type tool on the upper left of the screen.</div>'}));
     }
 
 
