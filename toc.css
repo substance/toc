@@ -47,15 +47,6 @@ TOC
 
 .resource-view.toc .toc-placeholder {
   line-height: 40px;
-  font-size: 20px;
-  
-  
+  font-size: 16px;
   padding-left: 10px;
-  
-}
-
-.resource-view.toc .toc-placeholder .small {
-  font-style: italic;
-  color: #777;
-  font-size: 14px;
 }
