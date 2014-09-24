@@ -15,9 +15,9 @@ var TOCView = function(doc) {
 
   // Sniff into headings
   // --------
-  // 
+  //
 
-  this.headings = _.filter(this.doc.content.getNodes(), function(node) {
+  this.headings = _.filter(this.doc.get('content').getNodes(), function(node) {
     return node.type === "heading";
   });
 
@@ -44,7 +44,7 @@ TOCView.Prototype = function() {
 
   // Renderer
   // --------
-  // 
+  //
 
   this.setActiveNode = function(nodeId) {
     this.$('.heading-ref.active').removeClass('active');
