@@ -17,10 +17,6 @@ var TOCView = function(doc) {
   // --------
   //
 
-  this.headings = _.filter(this.doc.get('content').getNodes(), function(node) {
-    return node.type === "heading";
-  });
-
   this.$el.addClass("toc");
 };
 
@@ -30,8 +26,8 @@ TOCView.Prototype = function() {
   // --------
 
   this.render = function() {
-    if (this.headings.length < 2) return this;
-    _.each(this.headings, function(heading) {
+    if (this.doc.getHeadings().length < 2) return this;
+    _.each(this.doc.getHeadings(), function(heading) {
       this.el.appendChild($$('a.heading-ref.level-'+heading.level, {
         id: "toc_"+heading.id,
         text: heading.content,
