@@ -28,11 +28,12 @@ TOCView.Prototype = function() {
   this.render = function() {
     if (this.doc.getHeadings().length < 2) return this;
     _.each(this.doc.getHeadings(), function(heading) {
-      this.el.appendChild($$('a.heading-ref.level-'+heading.level, {
+      var headingEl = $$('a.heading-ref.level-'+heading.level, {
         id: "toc_"+heading.id,
-        text: heading.content,
-        "sbs-click": "jumpToNode("+heading.id+")"
-      }));
+        text: heading.content
+      });
+      $(headingEl).click( _.bind( this.onClick, this, heading.id ) );
+      this.el.appendChild(headingEl);
     }, this);
 
     return this;
@@ -47,6 +48,9 @@ TOCView.Prototype = function() {
     this.$('#toc_'+nodeId).addClass('active');
   };
 
+  this.onClick = function(headingId) {
+    this.trigger('toc-item-selected', headingId)
+  };
 };
 
 TOCView.Prototype.prototype = View.prototype;
