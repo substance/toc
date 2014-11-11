@@ -28,9 +28,14 @@ TOCView.Prototype = function() {
   this.render = function() {
     if (this.doc.getHeadings().length < 2) return this;
     _.each(this.doc.getHeadings(), function(heading) {
+      var text = heading.content;
+      
+      // Prepend label if there is one
+      if (heading.label) text = heading.label+" ".concat(text);
+
       var headingEl = $$('a.heading-ref.level-'+heading.level, {
         id: "toc_"+heading.id,
-        text: heading.content
+        text: text
       });
       $(headingEl).click( _.bind( this.onClick, this, heading.id ) );
       this.el.appendChild(headingEl);
