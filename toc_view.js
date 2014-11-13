@@ -9,14 +9,10 @@ var _ = require("underscore");
 // Substance.TOC.View
 // ==========================================================================
 
-var TOCView = function(doc) {
+var TOCView = function(doc, viewFactory) {
   View.call(this);
   this.doc = doc;
-
-  // Sniff into headings
-  // --------
-  //
-
+  this.viewFactory = viewFactory;
   this.$el.addClass("toc");
 };
 
@@ -26,18 +22,16 @@ TOCView.Prototype = function() {
   // --------
 
   this.render = function() {
+    // don't render if only 2 sections
+    // TODO: this should be decided by the toc panel
     if (this.doc.getHeadings().length < 2) return this;
     _.each(this.doc.getHeadings(), function(heading) {
-      var text = heading.content;
-      
-      // Prepend label if there is one
-      if (heading.label) text = heading.label+" ".concat(text);
-
-      var headingEl = $$('a.heading-ref.level-'+heading.level, {
-        id: "toc_"+heading.id,
-        text: text
-      });
-      $(headingEl).click( _.bind( this.onClick, this, heading.id ) );
+      var headingView = this.viewFactory.createView(heading);
+      var headingEl = headingView.render().el;
+      var $headingEl = $(headingEl);
+      headingEl.id = "toc_"+heading.id;
+      $headingEl.removeClass('heading').addClass('heading-ref');
+      $headingEl.click( _.bind( this.onClick, this, heading.id ) );
       this.el.appendChild(headingEl);
     }, this);
 

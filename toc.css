@@ -1,5 +1,5 @@
 /*
-TOC 
+TOC
 --------------------------------------- */
 
 
@@ -14,6 +14,9 @@ TOC
   margin-right: 10px;
   border: 1px solid transparent;
 }
+
+.resource-view.toc .heading-ref .label { display: inline; padding-right: 10px; }
+.resource-view.toc .heading-ref .title, .resource-view.toc .heading .content .title .content { display: inline; }
 
 .resource-view.toc .heading-ref.active {
   color: rgba(0,0,0,0.9);
