@@ -22,17 +22,20 @@ TOCView.Prototype = function() {
   // --------
 
   this.render = function() {
+    var tocNodes = this.doc.getTocNodes();
     // don't render if only 2 sections
     // TODO: this should be decided by the toc panel
-    if (this.doc.getHeadings().length < 2) return this;
-    _.each(this.doc.getHeadings(), function(heading) {
-      var headingView = this.viewFactory.createView(heading);
-      var headingEl = headingView.render().el;
-      var $headingEl = $(headingEl);
-      headingEl.id = "toc_"+heading.id;
-      $headingEl.removeClass('heading').addClass('heading-ref');
-      $headingEl.click( _.bind( this.onClick, this, heading.id ) );
-      this.el.appendChild(headingEl);
+    if (tocNodes.length < 2) return this;
+
+    _.each(tocNodes, function(node) {
+      var nodeView = this.viewFactory.createView(node);
+      var el = nodeView.render().el;
+      var $el = $(el);
+      el.id = "toc_"+node.id;
+      // TODO: change 'heading-ref' to 'toc-node'
+      $el.removeClass(node.type).addClass('heading-ref');
+      $el.click( _.bind( this.onClick, this, node.id ) );
+      this.el.appendChild(el);
     }, this);
 
     return this;
