@@ -22,6 +22,7 @@ TOCView.Prototype = function() {
   // --------
 
   this.render = function() {
+    var lastLevel = -1;
     var tocNodes = this.doc.getTocNodes();
     // don't render if only 2 sections
     // TODO: this should be decided by the toc panel
@@ -29,7 +30,12 @@ TOCView.Prototype = function() {
 
     _.each(tocNodes, function(node) {
       var nodeView = this.viewFactory.createView(node);
-      var level = node.getLevel() || 4;
+      var level = node.getLevel();
+      if (level === -1) {
+        level = lastLevel + 1;
+      } else {
+        lastLevel = level;
+      }
       var el = nodeView.renderTocItem();
       var $el = $(el);
       el.id = "toc_"+node.id;
