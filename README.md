@@ -1,4 +1,4 @@
-toc
-===
+Substance TOC
+=====
 
-Table of Contents View
+**No longer maintained. See http://github.com/substance/ui instead.**
